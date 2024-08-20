@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Center Frame</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                margin: 0;
+                background-color: MistyRose;
+                background-repeat: no-repeat;
+                background-size: cover; 
+                background-position: center; 
+            }
+            .tasks {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+            }
+            .task {
+                padding: 15px 30px;
+                margin: 10px;
+                background-color: #f200ff;
+                color: white;
+                text-decoration: none;
+                font-size: 18px;
+                border-radius: 5px;
+                width: 200px;
+                text-align: center;
+            }
+            .task:hover {
+                background-color: #b30080;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="tasks">
+            <a href="task1.html" class="task" target="center">Task 1: Simple Calculator</a>
+            <a href="task2.html" class="task" target="center">Task 2: Array Operations</a>
+            <a href="task3.html" class="task" target="center">Task 3: Object Manipulation</a>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task 3: Object Manipulation</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color:lavenderblush;
+      
+      color: white;
+    }
+    .container {
+      background-color: rgba(0, 0, 0, 0.5); 
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      width: 100%;
+      max-width: 400px;
+    }
+    input, button {
+      margin: 10px 0;
+      padding: 10px;
+      font-size: 18px;
+      border-radius: 5px;
+      width: 100%;
+    }
+    button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    #go-back {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #ff6347;
+      color: white;
+      font-size: 18px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 150px;
+      text-align: center;
+    }
+    #go-back:hover {
+      background-color: #cc5037;
+    }
+    #result-box {
+      margin-top: 20px;
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 10px;
+      border-radius: 10px;
+    }
+    #result {
+      font-size: 24px;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Task 3: Object Manipulation</h1>
+    <input type="text" id="first-name" placeholder="Enter First Name">
+    <input type="text" id="last-name" placeholder="Enter Last Name">
+    <input type="number" id="age" placeholder="Enter Age">
+    <button onclick="savePersonInfo()">Save Info</button>
+    <button onclick="showFullName()">Show Full Name & Age</button>
+    <button onclick="incrementAge()">Increment Age</button>
+    <p id="person-info"></p>
+  </div>
+
+  
+  <button id="go-back" onclick="goBack()">Go Back</button>
+
+  <script>
+    let Person = {
+      firstName: '',
+      lastName: '',
+      age: 0,
+      
+      getFullName: function() {
+        return this.firstName + ' ' + this.lastName;
+      },
+      
+      incrementAge: function() {
+        this.age++;
+      }
+    };
+
+    function savePersonInfo() {
+      Person.firstName = document.getElementById('first-name').value;
+      Person.lastName = document.getElementById('last-name').value;
+      Person.age = parseInt(document.getElementById('age').value);
+      document.getElementById('person-info').innerText = "Information Saved!";
+    }
+
+    function showFullName() {
+      if (Person.firstName && Person.lastName) {
+        document.getElementById('person-info').innerText = "Full Name: " + Person.getFullName() + ", Age: " + Person.age;
+      } else {
+        document.getElementById('person-info').innerText = "Please enter your information first.";
+      }
+    }
+
+    function incrementAge() {
+      if (Person.firstName && Person.lastName) {
+        Person.incrementAge();
+        document.getElementById('person-info').innerText = "Full Name: " + Person.getFullName() + ", Age: " + Person.age;
+      } else {
+        document.getElementById('person-info').innerText = "Please enter your information first.";
+      }
+    }
+
+    function goBack() {
+      window.history.back(); 
+    }
+  </script>
+</body>
+</html>
